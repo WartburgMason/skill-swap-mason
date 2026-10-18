@@ -8,35 +8,129 @@
 </head>
 <body>
     <script src="script.js"></script>
-    <header>
-        <h1>Skill Swap</h1>
-            <nav >
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Skill Swap</a>
+            <nav aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
-                <a href="#login">Login</a>
+                <a href="#about">About</a>
             </nav>
+            <a href="#login" class="login-button">Login</a>
+        </div>
     </header>
     <main>
         <!-- Hero Section -->
-        <section id="hero">
-            <h2>Learn and Teach Skills</h2>
-            <p>Find tutors by subject, experience, and teaching style.</p>
-            <a href="#skills">Explore Tutors</a>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">LEARN SOMETHING NEW TODAY</p>
+                <h1>Your skills have value.<br>
+                    <span>Share them with the world.</span>
+                </h1>
+                <p class="hero-description">
+                    Connect with tutors, learn new skills, or exchange
+                    your knowledge with people who want to learn from you.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#skills" class="button primary-button">
+                        Explore Skills
+                    </a>
+                    <a href="#Become-A-Tutor" class="button secondary-button">
+                        Become a Tutor
+                    </a>
+                </div>
+            </div>
         </section>
-        <!-- Skill Section to Display Tutors -->
-        <section id="skills">
+        <section id="skills" class="skills-section">
             <h2>Explore Tutors</h2>
-            <!-- Placeholder for tutors list -->
+            <div class="container">
+                <!-- Placeholder for tutors list -->
+            </div>
         </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Have questions or feedback? Get in touch with us!</p>
-            <!-- Contact form and contact information will be added later -->
+        
+        <section id="about" class="about-section">
+            <div class="container about-container">
+                <h2>About Skill Swap</h2>
+                <p>
+                    Skill Swap is a platform designed to help people learn new skills, share their knowledge, and connect with others. 
+                    Whether you're looking to learn programming, improve your cooking, practice a language, or develop a new hobby, Skill Swap makes it easier to find people with the skills you're looking for.
+                </p>
+                <p>
+                    Our goal is to create a community where everyone has something to teach and something to learn. 
+                    By allowing users to exchange skills, offer tutoring, and connect with others who share their interests, Skill Swap makes learning more accessible, affordable, and collaborative.
+                </p>
+            </div>
         </section>
+
+        <section id="contact" class="contact-section">
+    <div class="container contact-container">
+        <div class="contact-info">
+            <p class="eyebrow">GET IN TOUCH</p>
+            <h2>We'd love to hear from you.</h2>
+            <p>
+                Have a question about Skill Swap or an idea to share?
+                Send us a message and let us know how we can help.
+            </p>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="What is your message about?"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="button primary-button">
+                Send Message
+            </button>
+        </form>
+    </div>
+</section>
     </main>
     <footer>
-        <p>&copy; 2024 Skill Swap. All rights reserved.</p>
+        <p>&copy; 2026 Skill Swap. All rights reserved.</p>
     </footer>
 </body>
 </html>
