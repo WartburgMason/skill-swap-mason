@@ -6,6 +6,13 @@ const skills = [
     {title: "Italian Cooking", category: "Cooking", price: 30},
     {title: "Yoga Instruction", category: "Fitness", price: 20}
 ];
-
+function filterSkillsByCategory(category) {
+    if (category === 'All') {
+        return skills;
+    }
+    else{
+        return skills.filter(skill => skill.category === category);
+    }
+};
 
 module.exports = { filterSkillsByCategory };
