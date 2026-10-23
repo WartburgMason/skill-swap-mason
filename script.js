@@ -1,3 +1,6 @@
+
+
+
 //prevents form from submitting and displays an alert message instead
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("form").forEach((form) => {
