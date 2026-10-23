@@ -18,8 +18,12 @@ function displaySkills(skills) {
         };
 };
 
+function calculateTotalCost(hours, rate){
+    return -1;
+};
 
 
+//define all skill that will be displayed and filtered.
 const skills = [
     {title: "JavaScript", category: "Programming",tutor: "John Doe", price: 20},
     {title: "Python", category: "Programming", tutor: "Jane Smith", price: 25},
@@ -36,8 +40,9 @@ function filterSkillsByCategory(skills, category) {
         return skills.filter(skill => skill.category === category);
     }
 };
-
+module.exports = {filterSkillsByCategory, calculateTotalCost};
 //Waits for DOM to load and does initial display and sets event listener to dropdown for category filter
+/*
 document.addEventListener("DOMContentLoaded", () => {
     displaySkills(skills)
     document.getElementById("skill-filter").addEventListener("change", function() {
@@ -47,4 +52,4 @@ document.addEventListener("DOMContentLoaded", () => {
         displaySkills(CategorySkills);
     });
 });
-//module.exports = { filterSkillsByCategory };
+*/
