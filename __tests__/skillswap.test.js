@@ -55,7 +55,7 @@ describe('Test Calculator', () => {
    });
    test('Handles decimal rates', () => {
     const result =calculateTotalCost(3, 10.25);
-    expect(result).toBeClose(30.75, 2);
+    expect(result).toBeCloseTo(30.75, 2);
    }) ;
 });
 

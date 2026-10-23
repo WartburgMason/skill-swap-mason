@@ -19,7 +19,7 @@ function displaySkills(skills) {
 };
 
 function calculateTotalCost(hours, rate){
-    return -1;
+    return (hours * rate);
 };
 
 
