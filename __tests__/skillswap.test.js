@@ -1,4 +1,4 @@
-const { filterSkillsByCategory, calculateTotalCost } = require('../skillswap-functions.js');
+const { filterSkillsByCategory, calculateTotalCost, matchSkills } = require('../skillswap-functions.js');
 const skills= [
     {title: "JavaScript", category: "Programming",tutor: "John Doe", price: 20},
     {title: "Python", category: "Programming", tutor: "Jane Smith", price: 25},
@@ -61,7 +61,7 @@ describe('Test Calculator', () => {
 
 describe("Category and Price Filter", () =>{
     test("Handles Category Filter", () =>{
-        const result=matchSkills("Programming", "NoMax");
+        const result=matchSkills("Programming", "");
         expect(result).toEqual([
             { title: "JavaScript", category: "Programming", tutor: "John Doe", price: 20 },
             { title: "Python", category: "Programming", tutor: "Jane Smith", price: 25 },
@@ -75,16 +75,21 @@ describe("Category and Price Filter", () =>{
         ]);
     });
     test("Handle Price Filter", () =>{
-        const result=matchSkills("Any", 15);
+        const result=matchSkills("All", 15);
         expect(result).toEqual([
             { title: "Web Development", category: "Programming", tutor: "Bob Johnson", price: 0 },
             {title: "Guitar Lessons", category: "Music", tutor: "Alice Brown", price: 15}
         ]);
     });
     test("Handle Free filter", () =>{
-        const result=matchSkills("Any", 0)
+        const result=matchSkills("All", 0)
         expect(result).toEqual([
             { title: "Web Development", category: "Programming", tutor: "Bob Johnson", price: 0 }
         ]);
     });
+    test("Returns Empty Array if no tutors match filter", () => {
+        const result=matchSkills("Art", 15);
+        expect(result).toEqual([
+        ]);
+    })
 });

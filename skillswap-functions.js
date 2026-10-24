@@ -41,10 +41,20 @@ function filterSkillsByCategory(skills, category) {
         return skills.filter(skill => skill.category === category);
     }
 };
+function filterSkillsByPrice(skills, maxRate) {
+    if (maxRate===''){
+        return skills;
+    }
+    else{
+        return skills.filter(skill => skill.price <= maxRate);
+    };
+};
 
-function matchSkills(category, maxRate){
-    return 0
-}
+function matchSkills(MScategory, MSmaxRate){
+    categoryFilterList=filterSkillsByCategory(skills, MScategory);
+    finalFilterList=filterSkillsByPrice(categoryFilterList, MSmaxRate);
+    return finalFilterList;
+};
 module.exports = {filterSkillsByCategory, calculateTotalCost, matchSkills};
 //Waits for DOM to load and does initial display and sets event listener to dropdown for category filter
 /*
