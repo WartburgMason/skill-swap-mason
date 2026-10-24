@@ -41,9 +41,13 @@ function filterSkillsByCategory(skills, category) {
         return skills.filter(skill => skill.category === category);
     }
 };
-//module.exports = {filterSkillsByCategory, calculateTotalCost};
-//Waits for DOM to load and does initial display and sets event listener to dropdown for category filter
 
+function matchSkills(category, maxRate){
+    return 0
+}
+module.exports = {filterSkillsByCategory, calculateTotalCost, matchSkills};
+//Waits for DOM to load and does initial display and sets event listener to dropdown for category filter
+/*
 document.addEventListener("DOMContentLoaded", () => {
     displaySkills(skills)
     document.getElementById("skill-filter").addEventListener("change", function() {
@@ -69,3 +73,4 @@ document.addEventListener("DOMContentLoaded", () => {
         resultBox.innerHTML = `$${amount}`;
     });
 });
+*/
