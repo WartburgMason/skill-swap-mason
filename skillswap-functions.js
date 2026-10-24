@@ -41,22 +41,35 @@ function filterSkillsByCategory(skills, category) {
         return skills.filter(skill => skill.category === category);
     }
 };
-//module.exports = {filterSkillsByCategory, calculateTotalCost};
+function filterSkillsByPrice(skills, maxRate) {
+    if (maxRate===''){
+        return skills;
+    }
+    else{
+        return skills.filter(skill => skill.price <= maxRate);
+    };
+};
+
+function matchSkills(userneeds, skills){
+    categoryFilterList=filterSkillsByCategory(skills, userneeds.category);
+    finalFilterList=filterSkillsByPrice(categoryFilterList, userneeds.maxPrice);
+    return finalFilterList;
+};
+//module line for Jest testing
+//module.exports = {filterSkillsByCategory, calculateTotalCost, matchSkills};
 //Waits for DOM to load and does initial display and sets event listener to dropdown for category filter
 
 document.addEventListener("DOMContentLoaded", () => {
     displaySkills(skills)
     document.getElementById("skill-filter").addEventListener("change", function() {
-        let skill=this.value;
-        CategorySkills=filterSkillsByCategory(skills, skill);
-        console.log(CategorySkills);
-        displaySkills(CategorySkills);
+        categ=document.getElementById("skill-filter").value;
+        displaySkills(filterSkillsByCategory(skills, categ));
     });
+    
     document.getElementById('hours').addEventListener("change", function(){
         hours=document.getElementById('hours').value;
         rate=document.getElementById('rate').value;
         amount=calculateTotalCost(hours, rate)
-        console.log(amount)
         resultBox=document.getElementById('cost-result')
         resultBox.innerHTML = `$${amount}`;
     });
@@ -64,8 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
         hours=document.getElementById('hours').value;
         rate=document.getElementById('rate').value;
         amount=calculateTotalCost(hours, rate)
-        console.log(amount)
         resultBox=document.getElementById('cost-result')
         resultBox.innerHTML = `$${amount}`;
+    });
+    document.getElementById('find-matches').addEventListener("click", function(){
+        FMcateg=(document.getElementById("FMskill-filter")).value;
+        maxRate=(document.getElementById("max-rate")).value;
+        userneeds={category: FMcateg, maxPrice: maxRate};
+        displaySkills(matchSkills(userneeds, skills));
     });
 });
