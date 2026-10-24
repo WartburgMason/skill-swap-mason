@@ -61,7 +61,8 @@ describe('Test Calculator', () => {
 
 describe("Category and Price Filter", () =>{
     test("Handles Category Filter", () =>{
-        const result=matchSkills("Programming", "");
+        const user1={category: "Programming", maxPrice: ""};
+        const result=matchSkills(user1, skills)
         expect(result).toEqual([
             { title: "JavaScript", category: "Programming", tutor: "John Doe", price: 20 },
             { title: "Python", category: "Programming", tutor: "Jane Smith", price: 25 },
@@ -69,26 +70,30 @@ describe("Category and Price Filter", () =>{
         ]);
     });
     test("Handle Category and Price Filter", () => {
-        const result=matchSkills("Programming", 15);
+        const user2={category: "Programming", maxPrice: 15}
+        const result=matchSkills(user2, skills);
         expect(result).toEqual([
             { title: "Web Development", category: "Programming", tutor: "Bob Johnson", price: 0 }
         ]);
     });
     test("Handle Price Filter", () =>{
-        const result=matchSkills("All", 15);
+        const user3={category: "All", maxPrice: 15};
+        const result=matchSkills(user3, skills);
         expect(result).toEqual([
             { title: "Web Development", category: "Programming", tutor: "Bob Johnson", price: 0 },
             {title: "Guitar Lessons", category: "Music", tutor: "Alice Brown", price: 15}
         ]);
     });
     test("Handle Free filter", () =>{
-        const result=matchSkills("All", 0)
+        const user4={category: "All", maxPrice: 0}
+        const result=matchSkills(user4, skills)
         expect(result).toEqual([
             { title: "Web Development", category: "Programming", tutor: "Bob Johnson", price: 0 }
         ]);
     });
     test("Returns Empty Array if no tutors match filter", () => {
-        const result=matchSkills("Art", 15);
+        const user5={category: "Art", maxPrice: 15};
+        const result=matchSkills(user5, skills);
         expect(result).toEqual([
         ]);
     })
